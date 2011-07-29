@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title GeoTesis
+    = javascript_include_tag 'jquery'
+    = javascript_include_tag 'jquery.livequery'
+    = javascript_include_tag 'jquery-ui'
+    = javascript_include_tag 'binaryajax.js'
+    = javascript_include_tag 'binarywrapper.js'
+    = javascript_include_tag 'shapefile.js'
+    = javascript_include_tag 'dbf.js'
+    = yield :head
+    = yield :scripts
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+    
+    = stylesheet_link_tag 'styless'
+    = stylesheet_link_tag 'jquery-ui'
+  %body
+    #header
+      Aki va el header
+    #main
+      = yield
+      

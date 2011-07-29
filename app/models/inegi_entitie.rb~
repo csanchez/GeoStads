@@ -1,0 +1,41 @@
+class InegiEntitie < ActiveRecord::Base
+  acts_as_gmappable
+
+  def gmaps4rails_address
+    #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
+    self.nom_loc
+  end
+  
+  def gmaps4rails_infowindow
+    "#{cve_ent} - #{nom_ent} <br> #{cve_mun} - #{nom_mun} <br> #{cve_loc} - #{nom_loc}"
+  end
+
+  def gmaps4rails_title
+      "inegi"
+  end
+  
+
+  # By default, use the GEOS implementation for spatial columns.
+  self.rgeo_factory_generator = RGeo::Geos.method(:factory)
+
+  # But use a geographic implementation for the :latlon column.
+  set_rgeo_factory_for_column(:point, RGeo::Geographic.spherical_factory)
+  
+  def latitude
+    self.point.y.to_f
+  end
+
+  def longitude
+    self.point.x.to_f
+  end
+
+
+  def self.attributes_to_json
+    columns = []
+    self.column_names.each do |column|
+      columns.push({:attribute => column})
+    end
+    columns[0..31].to_json
+  end
+
+end

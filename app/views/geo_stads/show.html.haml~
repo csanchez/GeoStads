@@ -1,0 +1,48 @@
+%table
+  %tr
+    %td{:id => 'td_accordion'}
+      #accordion_header Mapas
+      #accordion
+        %h3{:id => "h3_map_1"}
+          %a{:href => '#' } Mapa 1
+        #map_1{:map =>'1'}
+          .databases
+            Bases de datos.
+          .layers 
+            Capas.
+            %ul
+      #desconocido
+        %button{:id => 'new_map'} Nevo mapa
+    %td{:id => 'td_map'}
+      #map
+        = gmaps("map_options" => {"container_id" => "map","id" => "map","type" =>"TERRAIN","detect_location" => true,"center_on_user" => true})
+        /"markers" => {"data" => @json,"title" => "INEGI"}
+      #tools
+        #tabs
+          %ul
+            %li
+              %a{:href => "#tabs-1" } Bases
+            %li
+              %a{:href => "#tabs-2" } Est espacial
+            %li
+              %a{:href => "#tabs-3" } Mapas
+            %li
+              %a{:href => "#tabs-4" } Clustering
+            %li
+              %a{:href => "#tabs-5" } Filtros
+          #tabs-1
+            %p 
+              %ul
+                %li
+                  INEGI
+                  = radio_button_tag 'database', 'inegi'
+                %li
+                  CONABIO
+                  = radio_button_tag 'database', 'conabio'
+          #tabs-2
+            %p
+              %ul
+                %li
+                  %button{:id => 'spatial_mean'}  "Media espacial"
+          #tabs-3
+            %p Proin elit arcu

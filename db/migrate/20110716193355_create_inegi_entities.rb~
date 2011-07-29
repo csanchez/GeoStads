@@ -1,0 +1,23 @@
+class CreateInegiEntities < ActiveRecord::Migration
+  def self.up
+    create_table :inegi_entities, :options=>"ENGINE=MyISAM", :force => true do |t|
+      t.integer :entidad
+      t.string  :nom_ent
+      t.integer :mun
+      t.string  :nom_mun
+      t.integer :loc
+      t.string  :nom_loc
+      t.point   :lat_lon
+      t.integer :pob_total
+      t.integer :pob_mas
+      t.integer :pob_fem
+      t.boolean :gmaps
+
+      t.timestamps
+    end
+  end
+  #add_index :inegi_entities, :lat_lon, :spatial => true
+  def self.down
+    drop_table :inegi_entities
+  end
+end
