@@ -5,14 +5,15 @@
     = javascript_include_tag 'jquery/jquery'
     = javascript_include_tag 'jquery/jquery.livequery'
     = javascript_include_tag 'jquery/jquery-ui'
-    = javascript_include_tag 'shapefile/binaryajax.js'
-    = javascript_include_tag 'shapefile/binarywrapper.js'
-    = javascript_include_tag 'shapefile/shapefile.js'
-    = javascript_include_tag 'shapefile/dbf.js'
+    = javascript_include_tag 'polymaps/polymaps'
+    /= javascript_include_tag 'shapefile/binaryajax.js'
+    /= javascript_include_tag 'shapefile/binarywrapper.js'
+    /= javascript_include_tag 'shapefile/shapefile.js'
+    /= javascript_include_tag 'shapefile/dbf.js'
     = yield :head
     = yield :scripts
-    = javascript_include_tag 'application'
-    = javascript_include_tag 'aux'
+    /= javascript_include_tag 'application'
+    = javascript_include_tag 'maps'
     = csrf_meta_tag
     
     = stylesheet_link_tag 'styless'
@@ -22,4 +23,5 @@
       Aki va el header
     #main
       = yield
-      
+    #footer
+      Aki val el footer
