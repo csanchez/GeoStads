@@ -7,16 +7,29 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 InegiEntitie.create([
 {
-:entidad => 9,
+:cve_ent => 9,
 :nom_ent =>"Distrito Federal" ,
-:mun => 4,
+:cve_mun => 4,
 :nom_mun =>"Cuajimalpa de Morelos" ,
-:loc => 10 ,
+:cve_loc => 10 ,
 :nom_loc =>"Cruz Blanca" ,
-:lat_lon => 'POINT(-99.0 19.0)',
+:point => 'POINT(-99.0 19.0)',
 :pob_total => 630 ,
-:pob_mas => 311,
-:pob_fem => 319,
+:pob_m => 311,
+:pob_f => 319,
+:gmaps => true
+},
+{
+:cve_ent => 9,
+:nom_ent =>"Distrito Federal" ,
+:cve_mun => 4,
+:nom_mun =>"Cuajimalpa de Morelos" ,
+:cve_loc => 11 ,
+:nom_loc =>"DUMMY LOC" ,
+:point => 'POINT(-99.20 19.25)',
+:pob_total => 700 ,
+:pob_m => 311,
+:pob_f => 319,
 :gmaps => true
 },
 ])

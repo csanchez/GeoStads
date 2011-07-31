@@ -1,20 +1,5 @@
 class InegiEntitie < ActiveRecord::Base
-  acts_as_gmappable
-
-  def gmaps4rails_address
-    #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-    self.nom_loc
-  end
-  
-  def gmaps4rails_infowindow
-    "#{cve_ent} - #{nom_ent} <br> #{cve_mun} - #{nom_mun} <br> #{cve_loc} - #{nom_loc}"
-  end
-
-  def gmaps4rails_title
-      "inegi"
-  end
-  
-
+  require 'rgeo/geo_json'
   # By default, use the GEOS implementation for spatial columns.
   self.rgeo_factory_generator = RGeo::Geos.method(:factory)
 
@@ -29,6 +14,21 @@ class InegiEntitie < ActiveRecord::Base
     self.point.x.to_f
   end
 
+  def self.all_location_to_geoJson()
+    geo_factory = ::RGeo::Cartesian.simple_factory(:srid => 4326)
+    entity_factory = ::RGeo::GeoJSON::EntityFactory.instance
+    features = []
+    self.all.each do |inegi|
+      features.push(entity_factory.feature(geo_factory.point(inegi.longitude,inegi.latitude),inegi.id,{
+        'cve_ent' => inegi.cve_ent,
+        'nom_ent' => inegi.nom_ent,
+        'cve_mun' => inegi.cve_mun,
+        'nom_mun' => inegi.nom_mun,
+        'cve_loc' => inegi.cve_loc,
+        'nom_loc' => inegi.nom_loc}))
+    end
+    RGeo::GeoJSON.encode(entity_factory.feature_collection(features)).to_json
+  end
 
   def self.attributes_to_json
     columns = []
@@ -41,11 +41,11 @@ class InegiEntitie < ActiveRecord::Base
   def self.spatial_mean(attr)
     @spatial_mean_lat=0
     @spatial_mean_lon=0
-    self.select(attr+", point").each do |inegi|
+    self.select(attr, point).each do |inegi|
       @spatial_mean_lat+=inegi.attributes[attr]*inegi.latitude
       @spatial_mean_lon+=inegi.attributes[attr]*inegi.longitude
     end
-    [{:description => "Media espacial de la variable "+attr,:title=> "Media espacial "+attr,:lng => (@spatial_mean_lon/InegiEntitie.all.sum(&attr.to_sym)).to_s,:lat =>(@spatial_mean_lat/InegiEntitie.all.sum(&attr.to_sym)).to_s,:picture => "/images/marker_spatial.png" }].to_json
+    [{:description => "Media espacial de la variable "+ attr,:title=> "Media espacial "+attr,:lng => (@spatial_mean_lon/InegiEntitie.all.sum(&attr.to_sym)).to_s,:lat =>(@spatial_mean_lat/InegiEntitie.all.sum(&attr.to_sym)).to_s,:picture => "/images/marker_spatial.png" }].to_json
   end
 
 end

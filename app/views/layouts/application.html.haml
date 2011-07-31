@@ -6,12 +6,16 @@
     = javascript_include_tag 'jquery/jquery.livequery'
     = javascript_include_tag 'jquery/jquery-ui'
     = javascript_include_tag 'polymaps/polymaps'
+    = javascript_include_tag 'polymaps/lib/tipsy/jquery.tipsy'
     /= javascript_include_tag 'shapefile/binaryajax.js'
     /= javascript_include_tag 'shapefile/binarywrapper.js'
     /= javascript_include_tag 'shapefile/shapefile.js'
     /= javascript_include_tag 'shapefile/dbf.js'
+
+
     = yield :head
     = yield :scripts
+    = javascript_include_tag 'aux'
     /= javascript_include_tag 'application'
     = javascript_include_tag 'maps'
     = csrf_meta_tag

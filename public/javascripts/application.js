@@ -11,7 +11,6 @@ faltan mas herramientas para datamining
 //EXTERNAL
 $(document).ready(function(){
 	//Descripcion de las bases de datos
-
 	var inegi_description = "Base de datos del iter del inegi-df";
 	var inegi_title ="INEGI ITER DF";
 	var DB = function(){this.markers=[];}

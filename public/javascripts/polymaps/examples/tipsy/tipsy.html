@@ -90,6 +90,7 @@ function load(e) {
 
 function show(e) {
   for (var i = 0; i < e.features.length; i++) {
+	
     var f = e.features[i], tip = tips[f.data.id];
     tip.feature = f.data;
     tip.location = {
@@ -114,8 +115,8 @@ function cancel(e) {
 function update(tip) {
   if (!tip.visible) return; // ignore
   var p = map.locationPoint(tip.location);
-  tip.anchor.style.left = p.x - radius + "px";
-  tip.anchor.style.top = p.y - radius + "px";
+  tip.anchor.style.left = p.x+ "px";
+  tip.anchor.style.top = p.y+ "px";
   $(tip.anchor).tipsy("show");
 }
 

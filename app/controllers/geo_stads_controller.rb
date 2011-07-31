@@ -1,7 +1,7 @@
 class GeoStadsController < ApplicationController
   respond_to :json, :except => :show
   def show
-    @json = InegiEntitie.all.to_gmaps4rails
+    #@json = InegiEntitie.all.to_gmaps4rails
   end
 
   def new
