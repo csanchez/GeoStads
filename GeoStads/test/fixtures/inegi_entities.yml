@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  entidad: 1
+  nom_ent: MyString
+  mun: 1
+  nom_mun: MyString
+  loc: 1
+  nom: 
+  lat_lon: 
+  pob_total: 1
+  pob_mas: 1
+  pob_fem: 1
+  gmaps: false
+
+two:
+  entidad: 1
+  nom_ent: MyString
+  mun: 1
+  nom_mun: MyString
+  loc: 1
+  nom: 
+  lat_lon: 
+  pob_total: 1
+  pob_mas: 1
+  pob_fem: 1
+  gmaps: false

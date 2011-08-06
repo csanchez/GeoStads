@@ -1,0 +1,42 @@
+#menu
+  %button#show_db Cargar BD
+  %button#databases_button{:disabled => true}
+    Bases de datos
+  %button#layers_button{:disabled => true}
+    Capas
+  %button#remove_poly Quitar poligonos
+  %button#add_poly Agregar poligonos
+    
+  
+%br
+%table
+  %tr
+    %td{:id => 'menu_options'}
+      #tabs-1.tab-div
+        %p Cargar una  base de datos existente
+        #databases
+          
+          %ul
+            %li
+              
+              INEGI
+              = radio_button_tag 'database', 'inegi'
+            %li
+              CONABIO
+              = radio_button_tag 'database', 'conabio'
+      #databases_layers.tab-div
+      #layers.tab-div
+        Aqui van las capas
+        
+    %td#prev_map
+      #dialog{:title => "Herramientas"}
+        %button#spatial_mean Media espacial
+      #prev_map
+        %a{:href => "#"}
+          %div <
+    %td{:id => 'map_container'}
+      #map
+    %td#next_map
+      #next_map
+        %a{:href => "#"}
+          %div >
