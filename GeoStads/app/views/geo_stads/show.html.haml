@@ -1,42 +1,106 @@
-#menu
-  %button#show_db Cargar BD
-  %button#databases_button{:disabled => true}
-    Bases de datos
-  %button#layers_button{:disabled => true}
-    Capas
-  %button#remove_poly Quitar poligonos
-  %button#add_poly Agregar poligonos
-    
+#menu_tabs
+  %ul
+    %li
+      %a{ :id=> "file_a", :href => "#file"} Archivo
+    %li
+      %a{ :id=> "edit_a",:href => "#edit"} Edicion
+    %li
+      %a{ :id=> "see_a",:href => "#see"} Ver
+    %li
+      %a{ :id=> "grid_a",:href => "#grid"} Rejilla
+    %li
+      %a{ :id=> "tools_a",:href => "#tools"} Herramientas
+  #file
+    %ol{:class => "selectable"}
+      %li{:id => "load_db",:class=>"ui-widget-content"} Cargar BD
+      %li{:class=>"ui-widget-content"} Exportar shapefile
+      %li{:class=>"ui-widget-content"} Nuevo mapa
+  #edit
+    %ol{:class => "selectable"}
+      %li{:class=>"ui-widget-content"} Mapa siguiente
+      %li{:class=>"ui-widget-content"} Mapa enterior
+  #see
+    %ol{:class => "selectable"}
+      %li{:class=>"ui-widget-content"} Bases de datos
+      %li{:class=>"ui-widget-content"} Poligonos
+      %li{:class=>"ui-widget-content"} Capas
+  #grid
+    %ol{:class => "selectable"}
+      %li{:class=>"ui-widget-content"} Propiedaes
+  #tools
+    %ol{:class => "selectable"}
+      %li{:class=>"ui-widget-content"} Media espacial
+      %li{:class=>"ui-widget-content"} Vecino mas cercano
+      %li{:class=>"ui-widget-content"} Join count
+      %li{:class=>"ui-widget-content"} Moran
+      %li{:class=>"ui-widget-content"} Semivariograma
+      %li{:class=>"ui-widget-content"} Elipses
+      %li{:class=>"ui-widget-content"} Filtros
+#map
+#load_db_dialog
+  %table{:border=>"0",:id => "select_db_table"}
+    %tr
+      %td
+        %button{:class =>'button_to_load_db', :database=>'inegi'} INEGI ITER DF
+    %tr
+      %td
+        %button{:class =>'button_to_load_db', :database=>'inegi'} INEGI ITER DF        
+    %tr
+      %td
+        %button{:class =>'button_to_load_db', :database=>'conabio'} CONABIO
+#layers_dialog
+  = render :partial => 'db_list'
+  #others
+    %table{:border=>"0",:id => "layers_others_table"}
   
-%br
-%table
-  %tr
-    %td{:id => 'menu_options'}
-      #tabs-1.tab-div
-        %p Cargar una  base de datos existente
-        #databases
-          
-          %ul
-            %li
-              
-              INEGI
-              = radio_button_tag 'database', 'inegi'
-            %li
-              CONABIO
-              = radio_button_tag 'database', 'conabio'
-      #databases_layers.tab-div
-      #layers.tab-div
-        Aqui van las capas
-        
-    %td#prev_map
-      #dialog{:title => "Herramientas"}
-        %button#spatial_mean Media espacial
-      #prev_map
-        %a{:href => "#"}
-          %div <
-    %td{:id => 'map_container'}
-      #map
-    %td#next_map
-      #next_map
-        %a{:href => "#"}
-          %div >
+#see_db_dialog
+  %table{:border => "1px"}
+    %tr{:id => "db_title"}
+    %tr{:id => "db_content"}
+
+#tools
+  #spatial_mean_dialog
+    #databases
+      %table{:border=>"0",:class => "list_db_table"}
+        %tr
+          %td{:border=>"2"} 
+            .title Capa
+          %td 
+            .title Mostrar/Ocultar
+    #content
+
+  #nearest_neighbor_dialog
+    #databases
+      %table{:border=>"0",:class => "list_db_table"}
+        %tr
+          %td{:border=>"2"} 
+            .title Capa
+          %td 
+            .title Mostrar/Ocultar
+    #layers
+    #content
+
+  #moran_dialog
+    %h3 Tamaño de la rejilla
+    #slider
+    %label{:id => 'grid_size'}
+    #databases
+      %table{:border=>"0",:id => "moran_db_table"}
+        %tr
+          %td{:border=>"2"} 
+            .title Capa
+          %td 
+            .title Mostrar/Ocultar
+    #layers
+
+	
+  #filter_dialog
+    #data_bases
+      %table{:border=>"0",:id => "filter_db_table"}
+        %tr
+          %td{:border=>"2"} 
+            .title Capa
+          %td 
+            .title Mostrar/Ocultar
+    #content
+      %table

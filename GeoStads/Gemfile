@@ -30,9 +30,7 @@ gem 'rails', '3.0.9'
 # end
 
 
-gem "gmaps4rails", "~> 0.10.2"
 gem "haml", "~> 3.1.2"
-gem "devise", "~> 1.4.2"
 gem "rgeo-geojson", "~> 0.2.1"
 gem "activerecord-mysqlspatial-adapter", "~> 0.3.2"
 gem "rgeo", "~> 0.3.1"

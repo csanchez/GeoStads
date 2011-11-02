@@ -9,19 +9,39 @@ body {
 
 
 
-#header{
-    height:100px;
-    width: 100%;
-    //background-color:#F2F2F2;
+#menu_tabs{
+	height: 0px;
 }
 
+#file,#edit,#see,#grid, #tools{
+	width: 250px;
+	visibility:hidden;
+}
+#file ol,#edit ol,#see ol,#grid ol,#tools ol	{
+	width: 250px;
+}
+
+
+.selectable .ui-selecting { background: #FECA40; }
+.selectable .ui-selected { background: #F39814; color: white; }
+.selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+.selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+.ui-tabs-panel{
+	padding: 0em;
+}
+
+#load_db_dialog, #see_db_dialog, #layers_dialog{
+	visibility:hidden;
+}
+#see_db_dialog{
+	height: 10px;
+}
 
 #main{
     height:850px;
     width: 100%;
 }
 table{
-    height:750px;
     width: 100%;
 }
 #menu{height: 30px;}
@@ -35,31 +55,7 @@ table{
     background-color:#F0f0f0;
 }
 
-#prev_map{
-    background-color: #00C2DC;
-    height: 100%;
-    width: 40px;
-}
-#next_map{
-    background-color: #00C2DC;
-    height: 100%;
-    width: 40px;
-}
-#next_map a div{
-    padding-top: 50%;
-    height: 100%
-    color: #fff;
-    font-size:50px;
-}
-#prev_map a div{
-    padding-top: 50%;
-    height: 100% !important;
-    width: 100% !important;
-    color: #fff;
-    font-size:50px;
-}
-#next_map:hover{background-color: #0095A9;opacity:0.6}
-#prev_map:hover{background-color: #0095A9;opacity:0.6}
+
 td#map_prev td#map_next{
       width: 50px;
       height:100%;
@@ -72,13 +68,14 @@ td#menu_options{
 }
 td#menu_options #tabs-1{font-size: 21px;}
 td#menu_options #tabs-1 p{margin: 10px;}
-td#menu_options #tabs-1  #databases{
+
+/*td#menu_options #tabs-1  #databases{
     background-color: white;
     border: medium solid silver;
     margin: auto;
     width: 90%;
     -moz-border-radius: 15px 15px 15px 15px;
-}
+}*/
 
 
 
@@ -96,16 +93,80 @@ td#map_container{
 }
 
 
+#select_db_table{
+	text-align: center;
+	height:20px;
+}
 
+#select_db_table{
+	text-align: center;
+	height:20px;
+}
+
+/* este reemplazarias a las otras*/
+.list_db_table{
+	text-align: center;
+	height:20px
+}
+.list_db_table .title{
+	width: 120px;
+	height:20px;
+	padding: 10px;
+	text-align: left;
+	border: 1px solid silver;
+}
+
+
+#layers_dialog #databases table{
+	text-align: center;
+	height:20px
+}
+
+#layers_dialog #databases table td .title{
+	width: 120px;
+	height:20px;
+	padding: 10px;
+	text-align: left;
+	border: 1px solid silver;
+}
+
+#layers_dialog #databases table td div.layer{
+	width: 100px;
+	height:30px;
+	padding: 10px;
+	text-align: left;
+	//border: 1px solid silver;
+}
+#select_db_table button{
+	height:80px;
+	width:200px;
+}
+
+#select_db_table button:hover{
+	background-color:red;
+}
+
+#select_db_table td div{
+	width: 200px;
+	height:50px;
+	padding: 10px;
+	text-align: left;
+	border: 1px solid silver;
+}
 
 /*
   CSS for maps
 */
-
-.layer circle {
-  fill: lightcoral;
+.layer circle.spatial_mean {
+  //fill: yellow;
   fill-opacity: .5;
-  stroke: brown;
+  //stroke: brown;
+  stroke-width: 1.5px;
+}
+.layer circle {
+  //fill: lightcoral;
+  fill-opacity: .5;
+  //stroke: brown;
   stroke-width: 1.5px;
 }
 

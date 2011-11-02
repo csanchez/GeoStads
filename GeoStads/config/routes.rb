@@ -3,6 +3,8 @@ GeoStads::Application.routes.draw do
   
   match "get_db" => "geo_stads#get_db"
   match "get_spatial_mean" => "geo_stads#spatial_mean"
+  match "get_nearest_neighbor" => "geo_stads#nearest_neighbor"
+  match "get_moran" => "geo_stads#moran"
   match "get_polygons" => "geo_stads#get_polygons"
   # The priority is based upon order of creation:
   # first created -> highest priority.

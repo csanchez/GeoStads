@@ -33,17 +33,11 @@ GEM
     activesupport (3.0.9)
     addressable (2.2.6)
     arel (2.0.10)
-    bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    crack (0.1.8)
     dbf (1.5.3)
       activesupport (~> 3.0.0)
       fastercsv (= 1.5.4)
       i18n (~> 0.5.0)
-    devise (1.4.2)
-      bcrypt-ruby (~> 2.1.2)
-      orm_adapter (~> 0.0.3)
-      warden (~> 1.0.3)
     erb2haml (0.1.2)
       haml
       hpricot
@@ -51,8 +45,6 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     fastercsv (1.5.4)
-    gmaps4rails (0.10.2)
-      crack
     haml (3.1.2)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -74,7 +66,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mysql (2.8.1)
-    orm_adapter (0.0.5)
     polyglot (0.3.1)
     rack (1.2.3)
     rack-mount (0.6.14)
@@ -116,8 +107,6 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
-    warden (1.0.4)
-      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -125,9 +114,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-mysqlspatial-adapter (~> 0.3.2)
   dbf (~> 1.5.3)
-  devise (~> 1.4.2)
   erb2haml (~> 0.1.2)
-  gmaps4rails (~> 0.10.2)
   haml (~> 3.1.2)
   haml-rails (~> 0.3.4)
   heroku (~> 2.4.0)

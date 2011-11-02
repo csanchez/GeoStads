@@ -2,25 +2,30 @@
 %html
   %head
     %title GeoTesis
+    
     = javascript_include_tag 'aux'
     = javascript_include_tag 'jquery/jquery'
     = javascript_include_tag 'jquery/jquery.livequery'
     = javascript_include_tag 'jquery-ui.custom/js/jquery-ui.custom.min'
     = javascript_include_tag 'polymaps/polymaps'
     = javascript_include_tag 'polymaps/lib/tipsy/jquery.tipsy'
-    
     = javascript_include_tag 'shapefile/binaryajax.js'
     = javascript_include_tag 'shapefile/binarywrapper.js'
     = javascript_include_tag 'shapefile/shapefile.js'
     = javascript_include_tag 'shapefile/dbf.js'
+    
+    
+    
+    
+    
 
 
     = yield :head
     = yield :scripts
-    
     = javascript_include_tag 'maps'
-   
     = javascript_include_tag 'application'
+    
+    
     
      
     = csrf_meta_tag
@@ -28,7 +33,5 @@
     = stylesheet_link_tag 'styless'
     = stylesheet_link_tag 'jquery-ui/jquery-ui.custom'
   %body
-    #header
-      Aki va el header
     #main
       = yield
